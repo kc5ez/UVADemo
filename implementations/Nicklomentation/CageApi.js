@@ -14,11 +14,12 @@ class CageApi {
 
     goToNext() {
         let index = this.i++;
-        return {
-            cage: this.cages[index % this.cages.length],
-            color: this.colors[index % this.colors.length],
-            quote: this.words[index % this.words.length]
-        }
+            return {
+                cage: this.cages[index % this.cages.length],
+                color: this.colors[index % this.colors.length],
+                quote: this.words[index % this.words.length], 
+                index: index
+            }
     }
 
     onReject(data) {

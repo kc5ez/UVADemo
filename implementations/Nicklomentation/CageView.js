@@ -6,6 +6,9 @@ from 'react-native'
 class CageView extends Component {
     constructor(props) {
         super(props);
+        console.log("PROPS");
+        console.log(props);
+        let variable = "ke";
     }
 
     render() {
@@ -16,6 +19,8 @@ class CageView extends Component {
                     backgroundColor={this.props.dataSource.color}>
                     <View stlye={{flex:1, flexDirection:'column', alignItems:'center'}}>
                         <Text style={{flex:1, fontSize:25, color: "blue" }}>{this.props.dataSource.quote}</Text> 
+                        <Text>{this.props.dataSource.index}</Text>
+                        <Text>{this.props.variable}</Text>
                     </View>
                 </View> 
             </View>
