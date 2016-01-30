@@ -1,0 +1,3 @@
+rootProject.name = 'ReactNativeCardSwiper'
+
+include ':app'
