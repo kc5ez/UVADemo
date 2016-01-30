@@ -8,6 +8,8 @@ class CageApi {
         this.colors = ['orange', 'orange', 'orange', 'orange', 'orange']
         this.words = ["High-five Dean Groves", "Watch the Sunrise \n from Humpback Rock", "Take a picture \n with Cav Man", "See the \n Lighting of the Lawn", "Appreciate a Horse at \n Foxfield"];
         this.i = 0;
+        this.rejectedPile = [];
+        this.acceptedPile = [];
     }
 
     goToNext() {
@@ -20,11 +22,15 @@ class CageApi {
     }
 
     onReject(data) {
-        console.log('rejected' + JSON.stringify(data));
+        console.log('rejected');
+        this.rejectedPile.push(data.quote);
+        console.log(this.rejectedPile);
     }
 
     onAccept(data) {
-        console.log('accepted' + JSON.stringify(data));
+        console.log('accepted');
+        this.acceptedPile.push(data.quote);
+        console.log(this.acceptedPile);
     }
 }
 
