@@ -18,7 +18,7 @@ class mainView extends Component {
 		return (
 			<View style={{flex:1}}>
 				<CardSwiperContainer  acceptAnimation={true} rejectAnimation={true} acceptText={"Done!"} rejectText={"Not yet!"}
-					onReject={this.cardApi.onReject.bind(this.cardApi)} onAccept={this.cardApi.onAccept.bind(this.cardApi)} 
+					onReject={this.cardApi.onReject.bind(this.cardApi)} onAccept={this.cardApi.onAccept.bind(this.cardApi)} maxCards={5}
 					getNextCardDataSource={this.cardApi.goToNext.bind(this.cardApi)}>
 					<CageView/>
 				</CardSwiperContainer>

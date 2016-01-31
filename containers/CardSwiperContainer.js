@@ -29,6 +29,7 @@ class ReactNativeCardSwiper extends Component {
         RejectText: React.PropTypes.string,
         onReject: React.PropTypes.func,
         onAccept: React.PropTypes.func,
+        maxCards: React.PropTypes.number.isRequired,
         getNextCardDataSource: React.PropTypes.func.isRequired,
         fadeWithPan: React.PropTypes.bool,
         children: React.PropTypes.element.isRequired,
@@ -57,6 +58,7 @@ class ReactNativeCardSwiper extends Component {
             pan: new Animated.ValueXY(),
             enter: new Animated.Value(0.5),
             dataSource: this.props.getNextCardDataSource(),
+            maxCards: this.props.maxCards
         }
     }
 
@@ -111,13 +113,14 @@ class ReactNativeCardSwiper extends Component {
                 //check too ensure that the x position is past the swipe threshold
                 //and that the direction of the velocity matches the direction of the x
                 //value relative to the origin.
-                if (Math.abs(this.state.pan.x._value) > SWIPE_THRESHOLD &&
-                    this.state.pan.x._value * velocity >= 0) {
 
-                    cardOffScreenAnimation(this.state.pan, velocity, vy, () => velocity > 0 ? this.emitAccept() : this.emitReject())
-                } else {
-                    cardReturnToOriginAnimation(this.state.pan);
-                }
+                    if (Math.abs(this.state.pan.x._value) > SWIPE_THRESHOLD &&
+                        this.state.pan.x._value * velocity >= 0) {
+
+                        cardOffScreenAnimation(this.state.pan, velocity, vy, () => velocity > 0 ? this.emitAccept() : this.emitReject())
+                    } else {
+                        cardReturnToOriginAnimation(this.state.pan);
+                    }
             }
         });
     }
@@ -193,11 +196,21 @@ class ReactNativeCardSwiper extends Component {
         });
 
         let animatedCardStyles = cardAnimation(pan.x, pan.y, enter);
-        return (
-            <Animated.View style={[styles.card, animatedCardStyles]} {...this._panResponder.panHandlers}>
-                {childView}
-            </Animated.View>
-        );
+
+        if(this.state.dataSource.index >= this.state.maxCards){
+            return (
+                <Text>
+                    Sup ke. 
+                </Text>
+            );
+        }
+        else {
+            return (
+                <Animated.View style={[styles.card, animatedCardStyles]} {...this._panResponder.panHandlers}>
+                    {childView}
+                </Animated.View>
+            );
+        }
     }
 
     render() {

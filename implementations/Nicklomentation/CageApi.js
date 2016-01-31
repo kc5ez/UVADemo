@@ -4,9 +4,10 @@ class CageApi {
             "https://aiasatuva.files.wordpress.com/2014/01/humpback2.jpg",
             "https://scontent-lax3-1.xx.fbcdn.net/hphotos-ash2/v/t1.0-9/10502049_10152891032437068_8151873515752733152_n.jpg?oh=340d7c5637de2b21d260eb63e2aafbee&oe=572E7393", 
             "https://i.ytimg.com/vi/woCzT0Pxy8Y/hqdefault.jpg", 
-            "http://www.hercampus.com/sites/default/files/2013/04/25/Foxfield.jpg"];
-        this.colors = ['orange', 'orange', 'orange', 'orange', 'orange']
-        this.words = ["High-five Dean Groves", "Watch the Sunrise \n from Humpback Rock", "Take a picture \n with Cav Man", "See the \n Lighting of the Lawn", "Appreciate a Horse at \n Foxfield"];
+            "http://www.hercampus.com/sites/default/files/2013/04/25/Foxfield.jpg", 
+            "https://d9tyu2epg3boq.cloudfront.net/institutions/uva.jpg"];
+        this.colors = ['orange', 'orange', 'orange', 'orange', 'orange', 'orange']
+        this.words = ["High-five Dean Groves", "Watch the Sunrise \n from Humpback Rock", "Take a picture \n with Cav Man", "See the \n Lighting of the Lawn", "Appreciate a Horse at \n Foxfield", "that's all!"];
         this.i = 0;
         this.rejectedPile = [];
         this.acceptedPile = [];
