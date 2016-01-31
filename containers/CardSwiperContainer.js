@@ -1,7 +1,7 @@
 'use strict';
 
 import React, {
-    AppRegistry, StyleSheet, Text, View, Animated, Component, PanResponder,
+    AppRegistry, StyleSheet, Text, View, Animated, Component, PanResponder, Navigator,
 }
 from 'react-native';
 import clamp from 'clamp';
@@ -20,6 +20,8 @@ from '../animations/AcceptancePopup';
 import EventEmitter from 'EventEmitter'
 import SimpleView from '../implementations/BasicSimplifiedImplementation/SimpleView'
 import CardApi from '../implementations/BasicSimplifiedImplementation/SimpleApi'
+
+var ResultsContainer = require('./ResultsContainer');
 
 class ReactNativeCardSwiper extends Component {
     static propTypes = {
@@ -199,9 +201,7 @@ class ReactNativeCardSwiper extends Component {
 
         if(this.state.dataSource.index >= this.state.maxCards){
             return (
-                <Text>
-                    Sup ke. 
-                </Text>
+                <ResultsContainer/>
             );
         }
         else {
@@ -227,6 +227,15 @@ class ReactNativeCardSwiper extends Component {
         );
     }
 }
+
+var DoneAndNotDone = React.createClass({
+
+    render(){
+        return (
+            <Text>test</Text>
+        );
+    }
+});
 
 var styles = StyleSheet.create({
     container: {
