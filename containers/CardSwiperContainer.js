@@ -197,11 +197,14 @@ class ReactNativeCardSwiper extends Component {
             });
         });
 
+        //console.log("render card");
+       // console.log(this.state.dataSource);
+
         let animatedCardStyles = cardAnimation(pan.x, pan.y, enter);
 
         if(this.state.dataSource.index >= this.state.maxCards){
             return (
-                <ResultsContainer/>
+                <ResultsContainer resultsData={this.state.dataSource}/>
             );
         }
         else {
@@ -227,15 +230,6 @@ class ReactNativeCardSwiper extends Component {
         );
     }
 }
-
-var DoneAndNotDone = React.createClass({
-
-    render(){
-        return (
-            <Text>test</Text>
-        );
-    }
-});
 
 var styles = StyleSheet.create({
     container: {

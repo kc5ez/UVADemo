@@ -6,9 +6,6 @@ from 'react-native'
 class CageView extends Component {
     constructor(props) {
         super(props);
-        console.log("PROPS");
-        console.log(props);
-        let variable = "ke";
     }
 
     render() {

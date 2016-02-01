@@ -19,20 +19,22 @@ class CageApi {
                 cage: this.cages[index % this.cages.length],
                 color: this.colors[index % this.colors.length],
                 quote: this.words[index % this.words.length], 
-                index: index
+                index: index,
+                rejected: this.rejectedPile,
+                accepted: this.acceptedPile
             }
     }
 
     onReject(data) {
-        console.log('rejected');
+       // console.log('rejected');
         this.rejectedPile.push(data.quote);
-        console.log(this.rejectedPile);
+       // console.log(this.rejectedPile);
     }
 
     onAccept(data) {
-        console.log('accepted');
+       // console.log('accepted');
         this.acceptedPile.push(data.quote);
-        console.log(this.acceptedPile);
+       // console.log(this.acceptedPile);
     }
 }
 

@@ -1,4 +1,6 @@
+
 'use strict';
+import CageApi from '../implementations/Nicklomentation/CageApi';
 
 var React = require('react-native');
 var {
@@ -9,51 +11,59 @@ var {
   View,
   Navigator,
   TouchableHighlight,
+  ListView
 } = React;
 
 
 var ResultsContainer = React.createClass({
+
+
   getInitialState() {
+    console.log("blah");
+    console.log(this.props.resultsData.accepted);
+      var ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2});
+
     return {
+
       showDone: true,
       haventDone: false,
-    }
+      dataSource: ds.cloneWithRows(this.props.resultsData.accepted),
+    };
   },
 
   showDone() {
+          var ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2});
+
     this.setState({
+
       showDone: true,
-      haventDone: false
+      haventDone: false,
+      dataSource: ds.cloneWithRows(this.props.resultsData.accepted),
     })
   },
 
   haventDone() {
+    var ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2});
+
     this.setState({
+
       showDone: false,
-      haventDone: true
+      haventDone: true,
+      dataSource: ds.cloneWithRows(this.props.resultsData.rejected),
     })
   },
 
 
   _renderView() {
-    if(this.state.showDone) {
-      return (
-        <Text>
-          render accept!
-        </Text>
-      );
-   }
-   else {
     return (
-      <Text>
-        render reject
-      </Text>
+         <ListView
+      dataSource={this.state.dataSource}
+      renderRow={(rowData) => <Text>{rowData}</Text>}
+        />
     );
-   }
   },
 
   render: function() {
-
     return(
       <View>
             <TouchableHighlight onPress = { () => this.showDone() }>
@@ -75,21 +85,6 @@ var ResultsContainer = React.createClass({
 
 });
 
-  var Results = React.createClass({
-    render() {
-      return(
-          <Text> view 1</Text>
-      );
-    }
-  });
-
-  var Results2 = React.createClass({
-    render() {
-      return(
-        <Text> view 2 </Text>
-      );
-    }
-  });
 
 var styles = StyleSheet.create({
   container: {

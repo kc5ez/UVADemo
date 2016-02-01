@@ -15,6 +15,8 @@ class mainView extends Component {
 	}
 
 	render() {
+		console.log("INDEX IOS");
+		console.log(this.cardApi);
 		return (
 			<View style={{flex:1}}>
 				<CardSwiperContainer  acceptAnimation={true} rejectAnimation={true} acceptText={"Done!"} rejectText={"Not yet!"}
