@@ -15,45 +15,81 @@ var {
 var ResultsContainer = React.createClass({
   getInitialState() {
     return {
-      showView: true
+      showDone: true,
+      haventDone: false,
     }
   },
 
-  toggleView() {
+  showDone() {
     this.setState({
-      showView: !this.state.showView
+      showDone: true,
+      haventDone: false
     })
   },
 
-  render: function() {
-    var view = <View> <Text> This View is being toggled</Text></View>
+  haventDone() {
+    this.setState({
+      showDone: false,
+      haventDone: true
+    })
+  },
 
-    if(this.state.showView){
-          return(
-      <View style = {styles.container}>
-      <TouchableHighlight onPress = { () => this.toggleView() }>
+
+  _renderView() {
+    if(this.state.showDone) {
+      return (
         <Text>
-          Hey
+          render accept!
         </Text>
-      </TouchableHighlight>
-      </View>
-    );          
-    } else {
-        return(
-        <View style = {styles.container}>
-          <TouchableHighlight onPress = { () => this.toggleView() }>
-            <Text>
-              Hey ke
-            </Text>
-          </TouchableHighlight>
-        </View>
-    );  
-     
-    }
+      );
+   }
+   else {
+    return (
+      <Text>
+        render reject
+      </Text>
+    );
+   }
+  },
 
+  render: function() {
+
+    return(
+      <View>
+            <TouchableHighlight onPress = { () => this.showDone() }>
+              <Text>
+                Done
+              </Text>
+            </TouchableHighlight>
+
+            <TouchableHighlight onPress = { () => this.haventDone() }>
+              <Text>
+                Haven't Done
+              </Text>
+            </TouchableHighlight>
+            {this._renderView()}
+      </View>
+    );
 
   }
+
 });
+
+  var Results = React.createClass({
+    render() {
+      return(
+          <Text> view 1</Text>
+      );
+    }
+  });
+
+  var Results2 = React.createClass({
+    render() {
+      return(
+        <Text> view 2 </Text>
+      );
+    }
+  });
 
 var styles = StyleSheet.create({
   container: {
