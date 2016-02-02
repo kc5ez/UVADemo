@@ -15,8 +15,7 @@ class CageView extends Component {
                 <View style={{flex: 1, flexDirection:'row', justifyContent: 'center', alignItems: 'center'}}
                     backgroundColor={this.props.dataSource.color}>
                     <View stlye={{flex:1, flexDirection:'column', alignItems:'center'}}>
-                        <Text style={{flex:1, fontSize:25, color: "blue" }}>{this.props.dataSource.quote}</Text> 
-                        <Text>{this.props.dataSource.index}</Text>
+                        <Text style={{textAlign: 'center', flex: 1, fontSize:25, color: "blue" }}>{this.props.dataSource.quote}</Text> 
                     </View>
                 </View> 
             </View>
