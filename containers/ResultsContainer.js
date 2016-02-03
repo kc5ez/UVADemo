@@ -23,8 +23,9 @@ var styles = StyleSheet.create({
     flexDirection: 'column'
   },
   taskpic: {
-    width: 75, 
-    height: 100
+    width: 107,
+    height: 165,
+    padding: 10
   },
   taskQuote: {
     fontSize: 16,
@@ -41,6 +42,10 @@ var styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: 'orange',
     marginTop: 40
+  },
+  separator: {
+    height: 1,
+    backgroundColor: "#dddddd"
   },
   toggleActive: {
     paddingLeft: 60,
@@ -124,7 +129,6 @@ class ResultsContainer extends React.Component{
               style = {styles.listViewContainer}
               dataSource={this.state.dataSource}
               renderRow={this._renderRow.bind(this)}
-              initialListSize={14}
             />
         </View>
 
@@ -145,7 +149,6 @@ class ResultsContainer extends React.Component{
               style = {styles.listViewContainer}
               dataSource={this.state.dataSource}
               renderRow={this._renderRow.bind(this)}
-              initialListSize={14}
             />
         </View>
       );

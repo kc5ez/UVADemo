@@ -4,7 +4,7 @@
   "description": "Tinder like component for react native",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "react-native start"
   },
   "repository": {
     "type": "git",
@@ -25,11 +25,9 @@
     "url": "https://github.com/matts310/ReactNativeCardSwiper/issues"
   },
   "homepage": "https://github.com/matts310/ReactNativeCardSwiper#readme",
-  "scripts": {
-    "start": "react-native start"
-  },
   "dependencies": {
     "clamp": "^1.0.1",
-    "react-native": "^0.17.0"
+    "react-native": "^0.17.0",
+    "react-native-search-bar": "^2.8.0"
   }
 }
