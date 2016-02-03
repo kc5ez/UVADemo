@@ -157,4 +157,3 @@ class ResultsContainer extends React.Component{
 }
 
 module.exports = ResultsContainer;
-

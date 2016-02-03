@@ -1,5 +1,5 @@
 import React, {
-	AppRegistry, StyleSheet, Text, View, Animated, Component, PanResponder,
+    AppRegistry, StyleSheet, Text, View, Animated, Component, PanResponder,
 }
 from 'react-native';
 import CardSwiperContainer from './containers/CardSwiperContainer';
@@ -9,22 +9,22 @@ import CageView from './implementations/Nicklomentation/CageView'
 import CageApi from './implementations/Nicklomentation/CageApi'
 
 class mainView extends Component {
-	constructor(props) {
-		super(props);
-		this.cardApi = new CageApi()
-	}
+    constructor(props) {
+        super(props);
+        this.cardApi = new CageApi()
+    }
 
-	render() {
-		return (
-			<View style={{flex:1}}>
-				<CardSwiperContainer  acceptAnimation={true} rejectAnimation={true} acceptText={"Done!"} rejectText={"Not yet!"}
-					onReject={this.cardApi.onReject.bind(this.cardApi)} onAccept={this.cardApi.onAccept.bind(this.cardApi)} maxCards={5}
-					getNextCardDataSource={this.cardApi.goToNext.bind(this.cardApi)}>
-					<CageView/>
-				</CardSwiperContainer>
-			</View>
-		);
-	}
+    render() {
+        return (
+            <View style={{flex:1}}>
+                <CardSwiperContainer  acceptAnimation={true} rejectAnimation={true} acceptText={"Done!"} rejectText={"Not yet!"}
+                    onReject={this.cardApi.onReject.bind(this.cardApi)} onAccept={this.cardApi.onAccept.bind(this.cardApi)} maxCards={5}
+                    getNextCardDataSource={this.cardApi.goToNext.bind(this.cardApi)}>
+                    <CageView/>
+                </CardSwiperContainer>
+            </View>
+        );
+    }
 }
 
 AppRegistry.registerComponent('ReactNativeCardSwiper', () => mainView);
